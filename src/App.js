@@ -69,7 +69,7 @@ class App extends Component {
 
   handleDeleteProject(id) {
     let projects = this.state.projects
-    let index = projects.findIndex(x => x.id === id)
+    let index = projects.findIndex(project => project.id === id)
     projects.splice(index, 1)
     this.setState({projects:projects})
   }
@@ -77,10 +77,17 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <AddProject addProject={this.handleAddProject.bind(this)}/>
-        <Projects projects={this.state.projects} onDelete={this.handleDeleteProject.bind(this)} />
+        <AddProject 
+          addProject={this.handleAddProject.bind(this)}
+        />
+        <Projects 
+          projects={this.state.projects} 
+          onDelete={this.handleDeleteProject.bind(this)} 
+        />
         <hr />
-        <Todos todos={this.state.todos}/>
+        <Todos 
+          todos={this.state.todos} 
+        />
       </div>
     );
   }
